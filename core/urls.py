@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from task.views import *
+from account.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -10,5 +11,8 @@ urlpatterns = [
     path("api/v1/tasks/", include("task.api.urls")),
     ##
     ## <== Template ==>
-    path("dashboard/", dashboard, name="dashboard"),
+    path("home/", home, name="home_page"),
+    path("login/", login_view, name="login_view"),
+    path("register/", register_view, name="register_view"),
+    path("logout/", logout_view, name="logout_view"),
 ]

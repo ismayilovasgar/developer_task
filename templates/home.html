@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <div class="navbar-brand" >Logo</div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,26 +22,35 @@
               Dropdown
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li id="auth-link">
+                {% if request.user.is_authenticated %}
+                <a href="{% url "logout_view" %}" class="dropdown-item">Logout</a>
+                {% else %}
+                <a href="{% url "login_view" %}" class="dropdown-item">Login</a>
+
+                {% endif %}
+              </li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
+        {% comment %} <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> {% endcomment %}
       </div>
     </div>
   </nav>
 
 
-
 {% endblock content %}
+
+{% block custom_js %}
+<script src="{% static "js/home.js" %}"></script>
+{% endblock custom_js %}
+
+
 
 

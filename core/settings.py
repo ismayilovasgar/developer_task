@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     # custom installed app
     "rest_framework",
     "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",  # Blacklist sistemi üçün vacibdir
     "task",
     "account",
 ]
@@ -111,8 +112,8 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60), 
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
