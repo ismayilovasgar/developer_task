@@ -1,4 +1,3 @@
-# views.py
 from django.contrib.auth import login,logout
 from django.shortcuts import render, redirect
 from .forms import *
@@ -34,7 +33,6 @@ def register_view(request):
     
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        print(request.POST)
         if form.is_valid():
             form.save()                    # Yeni istifadəçini qeydiyyatdan keçiririk
             return redirect('login_view')  # Qeydiyyat uğurlu olduqda login səhifəsinə yönləndiririk
