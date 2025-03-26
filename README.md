@@ -19,3 +19,12 @@ Bu layihə **Developer İnkişaf Paketi** əsasında **əlsələ gətirilmişdir
 8. `python manage.py migrate` komandasını icra edərək verilənlər bazasına dəyişiklikləri tətbiq edin.
 9. Əgər admin paneldən istifadə etmək istəyirsinizsə, `python manage.py createsuperuser` komandasını istifadə edin.
 10. `python manage.py runserver` komandasını icra edərək layihəni işə salın və səhv xətaları düzəldin.
+
+## İstifadə olunan API URL-ləri  
+- Burada API-lər əvvəlki request-lərə cavab verməyəcək, çünki Django-nun daxili **Authentication** ilə sərt şəkildə qorunub.
+- **App** daxilində login olduqdan sonra, ana səhifələrdə lazımi yerlərdə **fetch** ilə istifadə olunub.  
+
+- `api/v2/tasks/`
+- `api/v2/tasks/create/`
+- `api/v2/tasks/delete/{id}`
+- `api/v2/tasks/update/{id}`
