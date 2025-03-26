@@ -19,8 +19,8 @@ def home(request):
 def update_task(request, task_id):
     task = Task.objects.get(id=task_id)
 
-    # if task.user != request.user:
-    #     raise PermissionDenied("Bu görevi güncelleme izniniz yok.")
+    if task.user != request.user:
+        raise PermissionDenied("Bu görevi güncelleme izniniz yok.")
 
     serializer = TaskSerializer(task, data=request.data, partial=True)
     if serializer.is_valid():
@@ -51,8 +51,8 @@ def delete_task(request, task_id):
         )
 
     # Kullanıcının sadece kendi görevini silmesine izin ver
-    # if task.user != request.user:
-    #     raise PermissionDenied("Bu görevi silme izniniz yok.")
+    if task.user != request.user:
+        raise PermissionDenied("Bu görevi silme izniniz yok.")
 
     # Task'ı sil
     task.delete()

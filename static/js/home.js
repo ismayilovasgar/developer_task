@@ -19,7 +19,7 @@ function fetchTasks() {
                   task.id
                 }">
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
-                        <span style="min-width: 80px;" class="badge ${
+                        <span style="min-width:80px;" class="badge ${
                           task.status === "completed"
                             ? "bg-success"
                             : "bg-warning"
@@ -266,7 +266,7 @@ function updateTaskList(tasks) {
     // HTML içeriği
     taskElement.innerHTML = `
           <div class="d-flex justify-content-between align-items-center flex-wrap">
-              <span class="badge ${
+              <span style="min-width:80px;" class="badge ${
                 task.status === "completed" ? "bg-success" : "bg-warning"
               }">
                   ${task.status_display}
