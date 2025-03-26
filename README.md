@@ -1,5 +1,8 @@
 # Layihə Adı
+Bu layihə Developer İnkişaf Paketi əsasında əlsələ gətirilmişdir.Task-da qeyd olunan şərtlər diqqətə alınaraq hazırlanmışdır.
 
-Bu layihə [layihənin qısa təsviri]. Django və Django REST Framework (DRF) istifadə edilərək hazırlanmışdır.
+## İstifadə olunan teknologilər
+Python, Django, Django Rest Framework, SQLite - Backend hissəsində
+HTML,CSS,JS,Bootstrap - Frontend hissəsində
 
-## Tələblər (Requirements)
+
