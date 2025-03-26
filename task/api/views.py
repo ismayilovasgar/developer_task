@@ -21,13 +21,13 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
     filterset_class = TaskFilter
     ordering_fields = ["title", "status"]
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """
         Yalnızca giriş etmiş istifadəçinin tapşırıqlarını qaytarır.
         """
-        return Task.objects.filter(user=self.request.user)
+        return Task.objects.filter(user=self.request.user).order_by("status")
         # return Task.objects.all()
 
     def perform_create(self, serializer):
