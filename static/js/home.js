@@ -1,8 +1,5 @@
 const createForm = document.getElementById("createForm");
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   fetchTasks();
 });
@@ -22,7 +19,7 @@ function fetchTasks() {
                   task.id
                 }">
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
-                        <span class="badge ${
+                        <span style="min-width: 80px;" class="badge ${
                           task.status === "completed"
                             ? "bg-success"
                             : "bg-warning"
@@ -55,6 +52,82 @@ function fetchTasks() {
                     </div>
                 </div>
             `;
+
+        // const taskHtml = `
+        //     <div class="list-group-item list-group-item-action task-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#task${
+        //       task.id
+        //     }">
+        //         <div class="d-flex w-100 align-items-center">
+        //             <div class="d-flex align-items-center me-auto">
+        //                 <span class="badge ${
+        //                   task.status === "completed"
+        //                     ? "bg-success"
+        //                     : "bg-warning"
+        //                 } me-2" style="min-width: 100px; text-align: center;">
+        //                     ${task.status_display}
+        //                 </span>
+        //                 <span class="fw-bold text-truncate" style="max-width: 250px;">
+        //                     ${task.title}
+        //                 </span>
+        //             </div>
+        //             <span class="text-muted mx-2 text-nowrap">${
+        //               task.created_at_pretty
+        //             }</span>
+        //             <div class="btn-group">
+        //                 <button class="btn btn-sm btn-primary" onclick="openUpdateModal(${
+        //                   task.id
+        //                 }, '${task.title}', '${task.content}')">Yenilə</button>
+        //                 <button class="btn btn-sm btn-danger" onclick="openDeleteModal(${
+        //                   task.id
+        //                 })">Sil</button>
+        //             </div>
+        //         </div>
+        //         <div id="task${task.id}" class="collapse w-100 mt-2">
+        //             <p class="mb-0">${task.content}</p>
+        //         </div>
+        //     </div>
+        // `;
+
+        //         const taskHtml = `
+        //     <div class="list-group-item list-group-item-action task-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#task${
+        //       task.id
+        //     }">
+        //         <div class="d-flex w-100 justify-content-between align-items-center flex-wrap">
+        //             <!-- Status badge -->
+        //             <span class="badge ${
+        //               task.status === "completed" ? "bg-success" : "bg-warning"
+        //             }"
+        //                   style="min-width: 120px; text-align: center;">
+        //                 ${task.status_display}
+        //             </span>
+
+        //             <!-- Başlıq - Tam Ortada -->
+        //             <span class="fw-bold text-truncate text-center flex-grow-1 mx-3"
+        //                   style="max-width: 250px;">
+        //                 ${task.title}
+        //             </span>
+
+        //             <!-- Tarix və Butonlar -->
+        //             <div class="d-flex align-items-center">
+        //                 <span class="text-muted mx-3 text-nowrap">${
+        //                   task.created_at_pretty
+        //                 }</span>
+        //                 <div class="btn-group gap-2">
+        //                     <button class="btn btn-sm btn-primary" onclick="openUpdateModal(${
+        //                       task.id
+        //                     }, '${task.title}', '${task.content}')">Yenilə</button>
+        //                     <button class="btn btn-sm btn-danger" onclick="openDeleteModal(${
+        //                       task.id
+        //                     })">Sil</button>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div id="task${task.id}" class="collapse w-100 mt-2">
+        //             <p class="mb-0">${task.content}</p>
+        //         </div>
+        //     </div>
+        // `;
+
         taskList.innerHTML += taskHtml;
       });
     })
