@@ -24,7 +24,10 @@ Bu layihə **Developer İnkişaf Paketi** əsasında **əlsələ gətirilmişdir
 - Burada API-lər əvvəlki request-lərə cavab verməyəcək, çünki Django-nun daxili **Authentication** ilə sərt şəkildə qorunub.
 - **App** daxilində login olduqdan sonra, ana səhifələrdə lazımi yerlərdə **fetch** ilə istifadə olunub.  
 
-- `api/v2/tasks/`
-- `api/v2/tasks/create/`
-- `api/v2/tasks/delete/{id}`
-- `api/v2/tasks/update/{id}`
+### API Endpoints:
+| Metod  | URL                          | Açıklama |
+|--------|------------------------------|----------|
+| `GET`  | `/api/v2/tasks/`             | Bütün tapşırıqları siyahıla |
+| `POST` | `/api/v2/tasks/create/`      | Yeni tapşırıq yarat |
+| `DELETE` | `/api/v2/tasks/delete/{id}/` | Tapşırığı sil |
+| `PUT`  | `/api/v2/tasks/update/{id}/` | Tapşırığı yenilə |
