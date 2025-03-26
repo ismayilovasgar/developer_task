@@ -10,11 +10,8 @@ from rest_framework import status
 
 @login_required(login_url="login_view")
 def home(request):
-
     tasks = Task.objects.filter(user=request.user)
-
     context = {"tasks": tasks}
-
     return render(request, "home.html", context)
 
 
