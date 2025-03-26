@@ -1,3 +1,8 @@
+const createForm = document.getElementById("createForm");
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   fetchTasks();
 });
@@ -39,10 +44,10 @@ function fetchTasks() {
                               task.id
                             }, '${task.title}', '${
           task.content
-        }')">Update</button>
+        }')">Yenilə</button>
                             <button class="btn btn-sm btn-danger" onclick="openDeleteModal(${
                               task.id
-                            })">Delete</button>
+                            })">Sil</button>
                         </div>
                     </div>
                     <div id="task${task.id}" class="collapse mt-2">
@@ -198,10 +203,10 @@ function updateTaskList(tasks) {
               <div class="d-flex gap-2">
                   <button class="btn btn-sm btn-primary" onclick="openUpdateModal(${
                     task.id
-                  }, '${task.title}', '${task.content}')">Update</button>
+                  }, '${task.title}', '${task.content}')">Yenilə</button>
                   <button class="btn btn-sm btn-danger" onclick="openDeleteModal(${
                     task.id
-                  })">Delete</button>
+                  })">Sil</button>
               </div>
           </div>
           <div id="task${task.id}" class="collapse mt-2">
@@ -215,6 +220,7 @@ function updateTaskList(tasks) {
 }
 
 // ********************** add new task **********************************
+
 document
   .getElementById("createForm")
   .addEventListener("submit", function (event) {
@@ -238,14 +244,18 @@ document
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         if (data.id) {
           updateTaskList([data]);
           const createModal = bootstrap.Modal.getInstance(
             document.getElementById("createModal")
           );
           createModal.hide(); // Modalı kapat
+          // const createForm = document.getElementById("createForm");
+          document
+            .getElementById("createModal")
+            .addEventListener("hidden.bs.modal", function () {
+              createForm.reset(); // Formun bütün inputlarını sıfırla
+            });
         } else {
           alert("Bir hata oluştu, lütfen tekrar deneyin.");
         }
@@ -255,4 +265,3 @@ document
         alert("Görev oluşturulurken bir hata oluştu.");
       });
   });
-
