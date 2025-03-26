@@ -21,7 +21,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
     filterset_class = TaskFilter
     ordering_fields = ["title", "status"]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """
